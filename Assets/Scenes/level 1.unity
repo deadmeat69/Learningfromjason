@@ -512,6 +512,7 @@ GameObject:
   - component: {fileID: 1691418875}
   - component: {fileID: 1691418877}
   - component: {fileID: 1691418878}
+  - component: {fileID: 1691418879}
   m_Layer: 0
   m_Name: alienBlue_idle
   m_TagString: Untagged
@@ -732,6 +733,18 @@ PolygonCollider2D:
       - {x: 0.28515625, y: -0.015625}
       - {x: 0.29296875, y: -0.0078125}
   m_UseDelaunayMesh: 1
+--- !u!114 &1691418879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1691418874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 375a1ef008c4c5c459cbb4e3a39d1bdf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Player
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
