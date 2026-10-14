@@ -745,6 +745,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 375a1ef008c4c5c459cbb4e3a39d1bdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player
+  limitofjump: 0
+  jumpSeconds: 0.3
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

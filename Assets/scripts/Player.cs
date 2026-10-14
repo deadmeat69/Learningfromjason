@@ -7,6 +7,8 @@ public class Player : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     Rigidbody2D rigidbody;
+    [SerializeField] float limitofjump;
+    [SerializeField] float jumpSeconds;
     void Start()
     {
         rigidbody = GetComponent<Rigidbody2D>();
@@ -20,9 +22,16 @@ public class Player : MonoBehaviour
         var Horizonatlinput = Input.GetAxis("Horizontal");
         rigidbody.linearVelocity = new Vector2(Horizonatlinput * 5, rigidbody.linearVelocity.y);
 
-        // when fire bottom pressed and kept pressed horizontal remain same and vertical gets 5 velocity
-        if (Input.GetButton("Fire1"))
-            rigidbody.linearVelocity = new Vector2(rigidbody.linearVelocity.x, 5f);
+        // when fire bottom pressed stores the time and add .5 seconds in the variable which we compare later
+
+        if (Input.GetButtonDown("Fire1") )
+            limitofjump = Time.time + jumpSeconds ;
+
+        // comparing 2 comdition for the limiting  the jump
+
+        if (Input.GetButton("Fire1") && limitofjump > Time.time)
+            rigidbody.linearVelocity = new Vector2(rigidbody.linearVelocity.x, 5f ); 
+
 
     }
 }
