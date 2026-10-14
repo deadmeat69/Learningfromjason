@@ -25,7 +25,7 @@ public class Player : MonoBehaviour
         // when fire bottom pressed stores the time and add .5 seconds in the variable which we compare later
 
         if (Input.GetButtonDown("Fire1") )
-            limitofjump = Time.time + jumpSeconds ;
+            limitofjump = Time.time + jumpSeconds;
 
         // comparing 2 comdition for the limiting  the jump
 
