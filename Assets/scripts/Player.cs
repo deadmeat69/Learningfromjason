@@ -7,13 +7,23 @@ public class Player : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     Rigidbody2D rigidbody;
+    SpriteRenderer spriteRenderer;
     [SerializeField] float limitofjump;
     [SerializeField] float jumpSeconds;
     void Start()
     {
         rigidbody = GetComponent<Rigidbody2D>();
     }
+    void OnDrawGizmos()
+    {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        float bottomY = spriteRenderer.bounds.extents.y;
+        Vector2 Origin = new Vector2(transform.position.x,transform.position.y - bottomY );
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawLine( Origin, Origin + Vector2.down * 0.1f );
 
+
+    }
     // Update is called once per frame
     void Update()
     {
@@ -24,7 +34,7 @@ public class Player : MonoBehaviour
 
         // when fire bottom pressed stores the time and add .5 seconds in the variable which we compare later
 
-        if (Input.GetButtonDown("Fire1") )
+        if (Input.GetButtonDown("Fire1"))
             limitofjump = Time.time + jumpSeconds;
 
         // comparing 2 comdition for the limiting  the jump
