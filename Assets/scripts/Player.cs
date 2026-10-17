@@ -43,9 +43,15 @@ public class Player : MonoBehaviour
         Vector2 Origin = new Vector2(transform.position.x, transform.position.y - spriteRenderer.bounds.extents.y);
         var hit = Physics2D.Raycast(Origin, Vector2.down, 0.1f); // from towards till 
         if (hit.collider)
+        {
             Isgrounded = true;
+            spriteRenderer.sprite = _standsprite;
+        }
         else
+        {
             Isgrounded = false;
+            spriteRenderer.sprite = _jumpsprite;
+        }
         // left and right movement with A and D , y velocity remains same
 
         var Horizonatlinput = Input.GetAxis("Horizontal");
