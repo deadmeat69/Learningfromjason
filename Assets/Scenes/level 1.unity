@@ -621,7 +621,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!60 &1691418878
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -750,6 +750,7 @@ MonoBehaviour:
   Isgrounded: 0
   _jumpsprite: {fileID: 3810435283219779972, guid: e108b9bcbade6be448264791ce330d53, type: 3}
   _standsprite: {fileID: 402502597922571196, guid: dfc70f661bfa4234fb341dd29d5f620c, type: 3}
+  Horizonatlinput: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

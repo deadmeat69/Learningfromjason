@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
     public bool Isgrounded;
     public Sprite _jumpsprite;
     public Sprite _standsprite;
+    public float Horizonatlinput;
 
     private void Awake()
     {
@@ -39,22 +40,18 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+
         Vector2 Origin = new Vector2(transform.position.x, transform.position.y - spriteRenderer.bounds.extents.y);
         var hit = Physics2D.Raycast(Origin, Vector2.down, 0.1f); // from towards till 
         if (hit.collider)
-        {
             Isgrounded = true;
-            spriteRenderer.sprite = _standsprite;
-        }
         else
-        {
             Isgrounded = false;
-            spriteRenderer.sprite = _jumpsprite;
-        }
+
+
         // left and right movement with A and D , y velocity remains same
 
-        var Horizonatlinput = Input.GetAxis("Horizontal");
+        Horizonatlinput = Input.GetAxis("Horizontal");
         rigidbody.linearVelocity = new Vector2(Horizonatlinput * 5, rigidbody.linearVelocity.y);
 
         // when fire bottom pressed stores the time and add .5 seconds in the variable which we compare later
@@ -66,7 +63,27 @@ public class Player : MonoBehaviour
 
         if (Input.GetButton("Fire1") && limitofjump > Time.time)
             rigidbody.linearVelocity = new Vector2(rigidbody.linearVelocity.x, 5f);
+        spriteaction();
 
+    }
 
+    void spriteaction()
+    {
+        if (Isgrounded)
+        {
+            spriteRenderer.sprite = _standsprite;
+        }
+        else
+        {
+            spriteRenderer.sprite = _jumpsprite;
+        }
+        if ( Horizonatlinput >0 )
+        {
+            spriteRenderer.flipX = false;
+        }
+        else if ( Horizonatlinput < 0 )
+        {
+            spriteRenderer.flipX = true;
+        }
     }
 }
